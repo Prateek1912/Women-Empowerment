@@ -13,12 +13,12 @@
         <div>
             <success-message *ngIf="successMessage">{{successMessage}}</success-message>
             <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
-            <table>
+            <error-message *ngIf="applications.length == 0">No application to process</error-message>
+            <table *ngIf="applications.length > 0">
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Organization Name</th>
-                        <th>Chairman Name</th>
+                        <th>Trainee Name</th>
                         <th>Request Date</th>
                         <th>Action Date</th>
                         <th>Status</th>
@@ -27,26 +27,25 @@
                 <tbody>
                     <tr *ngFor="let app of applications">
                         <td>
-                            <mat-radio-button class="course-radio" value="{{app.ngoApplications[0].ngoApplicationId}}" (change)="onRadioChange(app.ngoApplications[0].ngoApplicationId, app.ngoApplications[0].status, app)"></mat-radio-button>
+                            <mat-radio-button class="course-radio" value="{{app.traineeApplications[0].traineeApplicationId}}" (change)="onRadioChange(app.traineeApplications[0].traineeApplicationId, app.traineeApplications[0].status, app)"></mat-radio-button>
                         </td>
-                        <td>{{app.ngoDetails[0].organisationName}}</td>
-                        <td>{{app.ngoDetails[0].chairmanName}}</td>
-                        <td>{{app.ngoApplications[0].requestDate}}</td>
-                        <td>{{app.ngoApplications[0].actionDate}}</td>
+                        <td>{{app.fullName}}</td>
+                        <td>{{app.traineeApplications[0].requestDate}}</td>
+                        <td>{{app.traineeApplications[0].actionDate}}</td>
                         <td>
-                            <span *ngIf="app.ngoApplications[0].status == 0" class="app-status pending">
+                            <span *ngIf="app.traineeApplications[0].status == 0" class="app-status pending">
                                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                     <path fill="orange" d="M16,14H17.5V16.82L19.94,18.23L19.19,19.53L16,17.69V14M17,12A5,5 0 0,0 12,17A5,5 0 0,0 17,22A5,5 0 0,0 22,17A5,5 0 0,0 17,12M17,10A7,7 0 0,1 24,17A7,7 0 0,1 17,24C14.21,24 11.8,22.36 10.67,20H1V17C1,14.34 6.33,13 9,13C9.6,13 10.34,13.07 11.12,13.2C12.36,11.28 14.53,10 17,10M10,17C10,16.3 10.1,15.62 10.29,15C9.87,14.93 9.43,14.9 9,14.9C6.03,14.9 2.9,16.36 2.9,17V18.1H10.09C10.03,17.74 10,17.37 10,17M9,4A4,4 0 0,1 13,8A4,4 0 0,1 9,12A4,4 0 0,1 5,8A4,4 0 0,1 9,4M9,5.9A2.1,2.1 0 0,0 6.9,8A2.1,2.1 0 0,0 9,10.1A2.1,2.1 0 0,0 11.1,8A2.1,2.1 0 0,0 9,5.9Z" />
                                 </svg>
                                 <span>Pending...</span>
                             </span>
-                            <span *ngIf="app.ngoApplications[0].status == 1" class="app-status approved">
+                            <span *ngIf="app.traineeApplications[0].status == 1" class="app-status approved">
                                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                     <path fill="green" d="M19.78,2.2L24,6.42L8.44,22L0,13.55L4.22,9.33L8.44,13.55L19.78,2.2M19.78,5L8.44,16.36L4.22,12.19L2.81,13.55L8.44,19.17L21.19,6.42L19.78,5Z" />
                                 </svg>
                                 <span>Approved</span>
                             </span>
-                            <span *ngIf="app.ngoApplications[0].status == 2" class="app-status rejected">
+                            <span *ngIf="app.traineeApplications[0].status == 2" class="app-status rejected">
                                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                     <path fill="red" d="M3,16.74L7.76,12L3,7.26L7.26,3L12,7.76L16.74,3L21,7.26L16.24,12L21,16.74L16.74,21L12,16.24L7.26,21L3,16.74M12,13.41L16.74,18.16L18.16,16.74L13.41,12L18.16,7.26L16.74,5.84L12,10.59L7.26,5.84L5.84,7.26L10.59,12L5.84,16.74L7.26,18.16L12,13.41Z" />
                                 </svg>
@@ -59,10 +58,10 @@
         </div>
     </div>
 
-    <ngo-application-dialog 
+    <trainee-application-dialog 
         *ngIf="viewApplicationState"
         [application]="activeApplication"
         [closeApplication]="closeApplication"
-    ></ngo-application-dialog>
+    ></trainee-application-dialog>
     
 </div>

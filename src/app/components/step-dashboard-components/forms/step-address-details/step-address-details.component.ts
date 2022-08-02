@@ -47,7 +47,7 @@ export class StepAddressDetailsComponent implements OnInit {
     this.traineeAddressDetailsService.postAddressDetails(this.addressDetails.value).subscribe((res) => {
       this.successMessage=res.success;
     }, (err) => {
-      this.errorMessage=err.error
+      this.errorMessage=err.error.error
     })
   }
 }

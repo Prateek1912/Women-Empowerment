@@ -26,8 +26,7 @@ export class NgoOrganizationDetailsService {
   }
 
   handleError(err: HttpErrorResponse) {
-    console.log(err)
-    return throwError(err.error)
+    return throwError(err)
   }
 
 

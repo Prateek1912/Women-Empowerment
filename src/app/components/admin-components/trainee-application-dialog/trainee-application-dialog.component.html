@@ -11,25 +11,58 @@
     </h1>
     <div>
         <div class="section">
-            <h3>Organization Details</h3>
+            <h3>Personal Details</h3>
             <div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Chairman</th>
-                            <th>Secretary</th>
+                            <th>Email</th>
+                            <th>Aadhaar</th>
                             <th>Pan</th>
-                            <th>Website</th>
+                            <th>Category</th>
+                            <th>Religion</th>
+                            <th>Marital Status</th>
+                            <th>Dsiability</th>
+                            <th>Disability Type</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let c of application.ngoDetails">
-                            <td>{{c.organisationName}}</td>
-                            <td>{{c.chairmanName}}</td>
-                            <td>{{c.secretaryName}}</td>
+                        <tr *ngFor="let c of application.traineePersonalDetails">
+                            <td>{{c.emailId}}</td>
+                            <td>{{c.aadhaar}}</td>
                             <td>{{c.pan}}</td>
-                            <td>{{c.website}}</td>
+                            <td>{{c.category}}</td>
+                            <td>{{c.religion}}</td>
+                            <td>{{c.maritalStatus}}</td>
+                            <td>{{c.personWithDisability ? "Yes" : "No"}}</td>
+                            <td>{{c.disabilityType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Family Details</h3>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mother Name</th>
+                            <th>Mother Designation</th>
+                            <th>Father Name</th>
+                            <th>Father Designation</th>
+                            <th>Husband Name</th>
+                            <th>Number of Children</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of application.traineeFamilyDetails">
+                            <td>{{c.motherName}}</td>
+                            <td>{{c.motherDesignation}}</td>
+                            <td>{{c.fatherName}}</td>
+                            <td>{{c.fatherDesignation}}</td>
+                            <td>{{c.husbandName}}</td>
+                            <td>{{c.numberOfChildren}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -45,16 +78,16 @@
                             <th>City</th>
                             <th>District</th>
                             <th>Pincode</th>
-                            <th>Contact</th>
+                            <th>Address</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let c of application.ngoContactDetails">
+                        <tr *ngFor="let c of application.traineeAddressDetails">
                             <td>{{c.state}}</td>
                             <td>{{c.city}}</td>
                             <td>{{c.district}}</td>
-                            <td>{{c.pin}}</td>
-                            <td>{{c.contactNo}}</td>
+                            <td>{{c.pincode}}</td>
+                            <td>{{c.address}}</td>
                         </tr>
                     </tbody>
                 </table>

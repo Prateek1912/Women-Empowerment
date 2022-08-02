@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-trainee-application-dialog',
+  selector: 'trainee-application-dialog',
   templateUrl: './trainee-application-dialog.component.html',
   styleUrls: ['./trainee-application-dialog.component.css']
 })

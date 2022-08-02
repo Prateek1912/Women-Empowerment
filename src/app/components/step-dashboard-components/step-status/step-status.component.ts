@@ -24,6 +24,11 @@ export class StepStatusComponent implements OnInit {
     this.traineeApplicationService.getApplication(this.traineeId).subscribe((res) => {
       this.applicationStatus = res.data
       this.applicationStatus.requestDate = (new Date(res.data.requestDate)).toLocaleDateString().replace (/\//g, '-')
+
+      if(this.applicationStatus.actionDate) {
+        this.applicationStatus.actionDate = (new Date(res.data.actionDate)).toLocaleDateString().replace (/\//g, '-')
+      }
+
     }, (err) => {
       this.errorMessage = err.error.error
     })

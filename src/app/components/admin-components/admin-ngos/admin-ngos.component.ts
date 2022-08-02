@@ -98,6 +98,7 @@ export class AdminNgosComponent implements OnInit {
       this.successMessage = res.success
       this.fetchApplications()
       this.viewBtnState = true
+      this.applicationStatus = 3
     }, (err) => {
       this.errorMessage = err.error.error
     })

@@ -47,7 +47,7 @@ export class NgoOrganizationDetailsComponent implements OnInit {
     this.ngoOrganizationDetailsService.postOrganizationDetails(this.organizationDetails.value).subscribe((res) => {
       this.successMessage=res.success;
     }, (err) => {
-      this.errorMessage=err.error
+      this.errorMessage=err.error.error
     })
   }
 

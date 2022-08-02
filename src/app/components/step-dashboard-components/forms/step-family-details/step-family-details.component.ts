@@ -50,7 +50,7 @@ export class StepFamilyDetailsComponent implements OnInit {
     this.traineeFamilyDetailsService.postFamilyDetails(this.familyDetails.value).subscribe((res) => {
       this.successMessage=res.success;
     }, (err) => {
-      this.errorMessage=err.error
+      this.errorMessage=err.error.error
     })
   }
 

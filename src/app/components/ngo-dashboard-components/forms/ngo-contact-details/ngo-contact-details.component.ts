@@ -48,7 +48,9 @@ export class NgoContactDetailsComponent implements OnInit {
     this.ngoContactDetailsService.postContactDetails(this.contactDetails.value).subscribe((res) => {
       this.successMessage=res.success;
     }, (err) => {
-      this.errorMessage=err.error
+      console.log('eror')
+      console.log(err)
+      this.errorMessage=err.error.error
     })
   }
 }

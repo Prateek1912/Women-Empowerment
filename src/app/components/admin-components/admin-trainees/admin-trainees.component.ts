@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminNgosService } from 'src/app/services/admin/admin-ngos.service';
+import { AdminTraineesService } from 'src/app/services/admin/admin-trainees.service';
 import { TraineeStatus } from 'src/app/models/admin/trainee-status';
 
 @Component({
@@ -26,7 +26,7 @@ export class AdminTraineesComponent implements OnInit {
   applicationStatus: number = 3
   approveButton: boolean = true
   rejectButton: boolean = true
-  constructor(private adminNgoService: AdminNgosService) { }
+  constructor(private adminTraineeService: AdminTraineesService) { }
 
   ngOnInit(): void {
     this.fetchApplications()
@@ -37,16 +37,16 @@ export class AdminTraineesComponent implements OnInit {
   }
 
   fetchApplications = (): void => {
-    this.adminNgoService.getApplications().subscribe((res) => {
+    this.adminTraineeService.getApplications().subscribe((res) => {
       console.log(res)
       let arr = res.data
       for(let i=0; i<arr.length; i++) {
-        let requestDate = arr[i].ngoApplications[0].requestDate
-        arr[i].ngoApplications[0].requestDate = this.convertDateToLocal(requestDate)
+        let requestDate = arr[i].traineeApplications[0].requestDate
+        arr[i].traineeApplications[0].requestDate = this.convertDateToLocal(requestDate)
 
-        let actionDate = arr[i].ngoApplications[0].actionDate
+        let actionDate = arr[i].traineeApplications[0].actionDate
         if(actionDate) {
-          arr[i].ngoApplications[0].actionDate = this.convertDateToLocal(actionDate)
+          arr[i].traineeApplications[0].actionDate = this.convertDateToLocal(actionDate)
         }
       }
       this.applications = arr
@@ -93,10 +93,11 @@ export class AdminTraineesComponent implements OnInit {
     this.errorMessage = ''
     this.traineeStatus.TraineeApplicationId = this.applicationId
 
-    this.adminNgoService.updateApplicationStatus(this.traineeStatus).subscribe((res) => {
+    this.adminTraineeService.updateApplicationStatus(this.traineeStatus).subscribe((res) => {
       this.successMessage = res.success
       this.fetchApplications()
       this.viewBtnState = true
+      this.applicationStatus = 3
     }, (err) => {
       this.errorMessage = err.error.error
     })
