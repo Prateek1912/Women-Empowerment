@@ -22,13 +22,13 @@ export class NgoContactDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getContactDetails()
     this.contactDetails = this.formBuilder.group({
-      NgoId: [this.ngoId, [Validators.required]],
-      State:['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
-      City:['', [Validators.required]],
-      District:['', [Validators.required]],
-      Pincode:['', [Validators.required]],
-      Address:['', [Validators.required]],
-      ContactNo: ['', [Validators.required]]
+      NgoId: ['1', [Validators.required]],
+      State:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      City:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      District:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      Pincode:['', [Validators.required, Validators.pattern('[0-9]{6}')]],
+      Address:['', [Validators.required, Validators.pattern('[a-zA-Z0-9,-/ ]+')]],
+      ContactNo: ['', [Validators.required, Validators.pattern('[0-9]{10}')]]
     })
   }
 

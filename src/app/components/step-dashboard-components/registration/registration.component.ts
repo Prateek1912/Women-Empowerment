@@ -27,6 +27,7 @@ export class RegistrationComponent implements OnInit {
       this.successMessage = res.success
     }, (err) => {
       this.errorMessage = err.error.error
+      setTimeout(() => {this.router.navigate(['step', 'status'])}, 2000)
     })
   }
 

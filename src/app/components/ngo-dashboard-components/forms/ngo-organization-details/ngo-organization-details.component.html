@@ -20,6 +20,13 @@
                 <mat-label>Organization Name</mat-label>
                 <input formControlName="OrganisationName" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && organizationDetails.controls['OrganisationName'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="organizationDetails.controls['OrganisationName'].errors!['required']">Organization Name required</span>
+                <span *ngIf="organizationDetails.controls['OrganisationName'].errors!['pattern']">Invalid Organization Name</span>
+            </div>
         </div>
     </div>
 
@@ -29,12 +36,26 @@
                 <mat-label>Chairman Name</mat-label>
                 <input formControlName="ChairmanName" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && organizationDetails.controls['ChairmanName'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="organizationDetails.controls['ChairmanName'].errors!['required']">Chairman Name required</span>
+                <span *ngIf="organizationDetails.controls['ChairmanName'].errors!['pattern']">Invalid Chairman Name</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field  appearance="fill">
                 <mat-label>Secretary Name</mat-label>
                 <input maxlength="12" formControlName="SecretaryName" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && organizationDetails.controls['SecretaryName'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="organizationDetails.controls['SecretaryName'].errors!['required']">Secretary Name required</span>
+                <span *ngIf="organizationDetails.controls['SecretaryName'].errors!['pattern']">Invalid Secretary Name</span>
+            </div>
         </div>
     </div>
 
@@ -44,18 +65,31 @@
                 <mat-label>Pan</mat-label>
                 <input formControlName="Pan" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && organizationDetails.controls['Pan'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="organizationDetails.controls['Pan'].errors!['required']">PAN required</span>
+                <span *ngIf="organizationDetails.controls['Pan'].errors!['pattern']">Invalid PAN</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field  appearance="fill">
                 <mat-label>Website URL</mat-label>
                 <input formControlName="Website" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && organizationDetails.controls['Website'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="organizationDetails.controls['Website'].errors!['pattern']">Invalid Website</span>
+            </div>
         </div>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="space-between">
         <button mat-flat-button color="" type="reset">Reset</button>
-        <button mat-flat-button color="primary" type="submit" [disabled]="organizationDetails.invalid">Save</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="false">Save</button>
     </div>
 
 

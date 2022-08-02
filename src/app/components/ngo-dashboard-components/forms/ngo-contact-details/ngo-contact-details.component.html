@@ -16,6 +16,13 @@
                 <mat-label>Contact</mat-label>
                 <input type="number" formControlName="ContactNo" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && contactDetails.controls['ContactNo'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="contactDetails.controls['ContactNo'].errors!['required']">Contact required</span>
+                <span *ngIf="contactDetails.controls['ContactNo'].errors!['pattern']">Invalid Contact</span>
+            </div>
         </div>
     </div>
     
@@ -25,12 +32,26 @@
                 <mat-label>State</mat-label>
                 <input formControlName="State" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && contactDetails.controls['State'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="contactDetails.controls['State'].errors!['required']">State required</span>
+                <span *ngIf="contactDetails.controls['State'].errors!['pattern']">Invalid State</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field  appearance="fill">
                 <mat-label>City</mat-label>
                 <input formControlName="City" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && contactDetails.controls['City'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="contactDetails.controls['City'].errors!['required']">City required</span>
+                <span *ngIf="contactDetails.controls['City'].errors!['pattern']">Invalid City</span>
+            </div>
         </div>
     </div>
 
@@ -40,12 +61,26 @@
                 <mat-label>District</mat-label>
                 <input formControlName="District" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && contactDetails.controls['District'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="contactDetails.controls['District'].errors!['required']">District required</span>
+                <span *ngIf="contactDetails.controls['District'].errors!['pattern']">Invalid District</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field  appearance="fill">
                 <mat-label>Pincode</mat-label>
                 <input formControlName="Pincode" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && contactDetails.controls['Pincode'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="contactDetails.controls['Pincode'].errors!['required']">PIN Code required</span>
+                <span *ngIf="contactDetails.controls['Pincode'].errors!['pattern']">Invalid PIN Code</span>
+            </div>
         </div>
     </div>
 
@@ -55,6 +90,13 @@
                 <mat-label>Address</mat-label>
                 <textarea formControlName="Address" matInput ></textarea>
             </mat-form-field>
+            <div *ngIf="submitted && contactDetails.controls['Address'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="contactDetails.controls['Address'].errors!['required']">Address required</span>
+                <span *ngIf="contactDetails.controls['Address'].errors!['pattern']">Invalid Address</span>
+            </div>
         </div>
     </div>
 
