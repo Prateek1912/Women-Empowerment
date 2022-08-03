@@ -1,7 +1,12 @@
 # Women Empowerment
 
 ## Objective
-Provide accommodation for working women, with day care facility for their children.
+Creating employment opportunities for women through Support to Training and Employment Programme for Women (STEP).
+
+To raise the status of women through education, awareness, literacy and training.
+
+This platform acts as a medium between women wanted to be self-dependent by acquiring a job and the NGOs which are independent and willing to teach skills to create employment opportunities.
+
 
 ## Eligibility
 ### Working Women
@@ -80,11 +85,6 @@ Sub Header contains link
 6. FAQ
 ```
 
-
-STEP -> Login & Register
-
-On Successfull Login -> Welfare Schemes Dashboard
-
 ---
 
 ## STEP Dashboard
@@ -140,11 +140,7 @@ Sub Header contains link
 ```
 
 
-## Angular | Development Settings
-
-## Popular Links
-[Angular Material](https://material.angular.io/components/input/overview)
-[Material Design Icon](https://materialdesignicons.com/)
+## Angular 
 
 ### Installations
 ```
@@ -155,5 +151,72 @@ ng add @angular/material
 npm i -s @angular/flex-layout @angular/cdk
 ```
 
+### Angular Material
+Angular Material is a User Interface (UI) component library that developers can use in their Angular projects to speed up the development of elegant and consistent user interfaces.
+
+[Angular Material](https://material.angular.io/components/input/overview)
+
+```
+import {MatButtonModule} from '@angular/material/button';
+```
+
+```
+import {MatCheckboxModule} from '@angular/material/checkbox';
+```
+
+```
+import {MatDatepickerModule} from '@angular/material/datepicker';
+```
+
+```
+import {MatInputModule} from '@angular/material/input';
+```
+
+```
+import {MatRadioModule} from '@angular/material/radio';
+```
+
+```
+import {MatSelectModule} from '@angular/material/select';
+```
 
 
+### Flexbox
+Flexbox is a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities.
+
+[Flex-CSS](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+
+### Material Deisgn SVG Icons
+[Material Design Icon](https://materialdesignicons.com/)
+
+
+### Create Component
+```
+ng generate component 
+or
+ng g c 
+```
+
+### Create Interface 
+```
+ng generate interface
+```
+
+### Create Service
+```
+ng generate service
+```
+
+## Build and Serve application locally
+```
+ng serve
+or 
+ng serve -o
+o in command stands for open in browser
+```
+
+## Run application on a different port
+```
+ng serve --port 4401   
+```

@@ -41,6 +41,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>S No.</th>
                             <th>State</th>
                             <th>City</th>
                             <th>District</th>
@@ -49,7 +50,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let c of application.ngoContactDetails">
+                        <tr *ngFor="let c of application.ngoContactDetails; let i = index">
+                            <td>{{i+1}}</td>
                             <td>{{c.state}}</td>
                             <td>{{c.city}}</td>
                             <td>{{c.district}}</td>

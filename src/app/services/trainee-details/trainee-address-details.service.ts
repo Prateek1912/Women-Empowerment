@@ -17,7 +17,7 @@ export class TraineeAddressDetailsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  
+
   postAddressDetails(data: TraineeAddressDetails): Observable<any> {
     console.log(data)
     return this.httpClient.post<TraineeAddressDetails>(this.baseURL + 'Add', data, this.httpOptions).pipe(catchError(this.handleError))

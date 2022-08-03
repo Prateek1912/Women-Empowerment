@@ -1,5 +1,5 @@
 export interface TraineePersonalDetails {
-    traineeId: string
+    traineeId: number
     emailId: string
     aadhaar: string
     pan: string

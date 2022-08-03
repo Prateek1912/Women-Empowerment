@@ -28,7 +28,7 @@ export class NgoRegistrationComponent implements OnInit {
       this.successMessage = res.success
     }, (err) => {
       this.errorMessage = err.error.error
-      setTimeout(() => {this.router.navigate(['ngo', 'status'])}, 2000)
+      // setTimeout(() => {this.router.navigate(['ngo', 'status'])}, 2000)
     })
   }
 

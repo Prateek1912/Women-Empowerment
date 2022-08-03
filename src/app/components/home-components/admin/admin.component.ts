@@ -28,6 +28,12 @@ export class AdminComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private adminService: AdminService) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('AdminId') != null) {
+      this.router.navigate(['admin', 'dashboard'])
+      return
+    }
+
     // initialize ngo login form
     this.adminLogin = this.formBuilder.group({
       Username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{8,30}')]],
@@ -42,10 +48,6 @@ export class AdminComponent implements OnInit {
   }
 
   login(): void {
-    if(localStorage.getItem('AdminId') != null) {
-      this.router.navigate(['admin', 'dashboard'])
-      return
-    }
     this.adminLoginSubmitted = true
     this.loginErrorMessage = ''
     if(this.adminLogin.invalid)

@@ -35,6 +35,7 @@ import { NgoRegistrationComponent } from './components/ngo-dashboard-components/
 import { NgoOrganizationDetailsComponent } from './components/ngo-dashboard-components/forms/ngo-organization-details/ngo-organization-details.component';
 import { NgoContactDetailsComponent } from './components/ngo-dashboard-components/forms/ngo-contact-details/ngo-contact-details.component';
 import { NgoCoursesComponent } from './components/ngo-dashboard-components/forms/ngo-courses/ngo-courses.component';
+import { ProgrammeComponent } from './components/home-components/programme/programme.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -50,6 +51,7 @@ const routes: Routes = [
       {path: 'legislation-and-policy', component: LegislationAndPolicyComponent},
       {path: 'faq', component: FaqComponent},
       {path: 'about-us', component: AboutUsComponent},
+      {path: 'programmes', component: ProgrammeComponent},
     ]
   },
 

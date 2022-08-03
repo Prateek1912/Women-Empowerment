@@ -28,6 +28,12 @@ export class NgoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private ngoService: NgoService) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('NgoId') != null) {
+      this.router.navigate(['ngo', 'dashboard'])
+      return
+    }
+
     // initialize ngo login form
     this.ngoLogin = this.formBuilder.group({
       Username: ['',[Validators.required, Validators.pattern('[a-zA-Z0-9]{8,30}')]],
@@ -43,11 +49,6 @@ export class NgoComponent implements OnInit {
 
   
   login(): void {
-
-    if(localStorage.getItem('NgoId') != null) {
-      this.router.navigate(['ngo', 'dashboard'])
-      return
-    }
 
     this.ngoLoginSubmitted = true
     this.loginErrorMessage = ''

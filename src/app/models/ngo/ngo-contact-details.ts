@@ -3,7 +3,7 @@ export interface NgoContactDetails {
     State: string
     City: string
     District: string
-    Pincode: string
+    Pin: string
     Address: string
     ContactNo: string
 }

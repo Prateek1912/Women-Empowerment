@@ -37,19 +37,28 @@ export class AdminTraineesComponent implements OnInit {
   }
 
   fetchApplications = (): void => {
+    this.applications = []
     this.adminTraineeService.getApplications().subscribe((res) => {
       console.log(res)
       let arr = res.data
       for(let i=0; i<arr.length; i++) {
-        let requestDate = arr[i].traineeApplications[0].requestDate
-        arr[i].traineeApplications[0].requestDate = this.convertDateToLocal(requestDate)
-
-        let actionDate = arr[i].traineeApplications[0].actionDate
-        if(actionDate) {
-          arr[i].traineeApplications[0].actionDate = this.convertDateToLocal(actionDate)
+        
+        let application = arr[i].traineeApplications[0]
+        if(application) {
+          let requestDate = application.requestDate
+          if(requestDate) {
+            arr[i].traineeApplications[0].requestDate = this.convertDateToLocal(requestDate)
+  
+            let actionDate = arr[i].traineeApplications[0].actionDate
+            if(actionDate) {
+              arr[i].traineeApplications[0].actionDate = this.convertDateToLocal(actionDate)
+            }
+            this.applications.push(arr[i])
         }
+        
       }
-      this.applications = arr
+        
+      }
     }, (err) => {
       console.log(err.error.error)
     })

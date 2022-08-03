@@ -20,7 +20,6 @@ export class NgoOrganizationDetailsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private ngoOrganizationDetailsService: NgoOrganizationDetailsService) { }
 
   ngOnInit(): void {
-    this.getOrganizationDetails()
     this.organizationDetails = this.formBuilder.group({
       NgoId: [this.ngoId, [Validators.required]],
       OrganisationName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],

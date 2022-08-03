@@ -38,19 +38,27 @@ export class AdminNgosComponent implements OnInit {
   }
 
   fetchApplications = (): void => {
+    this.applications = []
     this.adminNgoService.getApplications().subscribe((res) => {
       console.log(res)
       let arr = res.data
       for(let i=0; i<arr.length; i++) {
-        let requestDate = arr[i].ngoApplications[0].requestDate
-        arr[i].ngoApplications[0].requestDate = this.convertDateToLocal(requestDate)
 
-        let actionDate = arr[i].ngoApplications[0].actionDate
-        if(actionDate) {
-          arr[i].ngoApplications[0].actionDate = this.convertDateToLocal(actionDate)
+        let application = arr[i].ngoApplications[0]
+        if(application) {
+          let requestDate = application.requestDate
+          if(requestDate) {
+            arr[i].ngoApplications[0].requestDate = this.convertDateToLocal(requestDate)
+  
+            let actionDate = arr[i].ngoApplications[0].actionDate
+            if(actionDate) {
+              arr[i].ngoApplications[0].actionDate = this.convertDateToLocal(actionDate)
+            }
+            this.applications.push(arr[i])
+          }
         }
       }
-      this.applications = arr
+
     }, (err) => {
       console.log(err.error.error)
     })

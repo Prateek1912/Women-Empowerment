@@ -13,7 +13,7 @@
         <div>
             <success-message *ngIf="successMessage">{{successMessage}}</success-message>
             <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
-            <error-message *ngIf="applications.length == 0">No application to process</error-message>
+            <!-- <error-message *ngIf="applications.length == 0">No application to process</error-message> -->
             <table *ngIf="applications.length > 0">
                 <thead>
                     <tr>

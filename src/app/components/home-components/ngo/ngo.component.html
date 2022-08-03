@@ -20,7 +20,7 @@
                             <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
                         </svg>
                         <span *ngIf="ngoRegister.controls['Username'].errors!['required']">Username required</span>
-                        <span *ngIf="ngoRegister.controls['Username'].errors!['pattern']">Username should only contain alphabets and digits, mimium length 8</span>
+                        <span *ngIf="ngoRegister.controls['Username'].errors!['pattern']">Username should contain alphabets and digits, mimium length 8</span>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                             <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
                         </svg>
                         <span *ngIf="ngoLogin.controls['Username'].errors!['required']">Username required</span>
-                        <span *ngIf="ngoLogin.controls['Username'].errors!['pattern']">Username should only contain alphabets and digits, mimium length 8</span>
+                        <span *ngIf="ngoLogin.controls['Username'].errors!['pattern']">Username should contain alphabets and digits, mimium length 8</span>
                     </div>
                 </div>
             </div>

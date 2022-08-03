@@ -11,6 +11,7 @@
                 <span>STEP Login</span>
             </h1>            
             <error-message *ngIf="loginErrorMessage">{{loginErrorMessage}}</error-message>
+             
             <div class="form-row">
                 <div class="form-col">
                     <mat-form-field appearance="fill">
@@ -43,6 +44,7 @@
             </h1>
             <success-message *ngIf="registerSuccessMessage">{{registerSuccessMessage}}</success-message>
             <error-message *ngIf="registerErrorMessage">{{registerErrorMessage}}</error-message>
+            <error-message *ngIf="dateOfBirthError">{{dateOfBirthError}}</error-message>
             <div class="form-row">
                 <div class="form-col">
                     <mat-form-field appearance="fill">
@@ -67,7 +69,7 @@
                             <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
                         </svg>
                         <span *ngIf="stepRegister.controls['Username'].errors!['required']">Username required</span>
-                        <span *ngIf="stepRegister.controls['Username'].errors!['pattern']">Username should only contain alphabets and digits, mimium length 8</span>
+                        <span *ngIf="stepRegister.controls['Username'].errors!['pattern']">Username should contain alphabets and digits, mimium length 8</span>
                     </div>
                 </div>
             </div>

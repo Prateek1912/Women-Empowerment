@@ -117,7 +117,7 @@ import { TraineeApplicationDialogComponent } from './components/admin-components
     DeleteCourseConfirmationDialogComponent,
     LogoutMenuComponent,
     NgoApplicationDialogComponent,
-    TraineeApplicationDialogComponent
+    TraineeApplicationDialogComponent,
   ],
   imports: [
     BrowserModule,

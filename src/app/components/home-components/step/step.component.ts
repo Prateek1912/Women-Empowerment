@@ -23,11 +23,16 @@ export class StepComponent implements OnInit {
   stepRegisterSubmitted: boolean = false
   registerErrorMessage: string = ''
   registerSuccessMessage: string = ''
+  dateOfBirthError: string = ''
 
   constructor(private router: Router, private formBuilder: FormBuilder, private traineeService: TraineeService) { }
 
   ngOnInit(): void {
 
+    if(localStorage.getItem('TraineeId') != null) {
+      this.router.navigate(['step', 'dashboard'])
+      return
+    }
     // initialize step login form
     this.stepLogin = this.formBuilder.group({
       Username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{8,30}')]],
@@ -46,11 +51,6 @@ export class StepComponent implements OnInit {
   }
 
   login(): void {
-
-    if(localStorage.getItem('TraineeId') != null) {
-      this.router.navigate(['step', 'dashboard'])
-      return
-    }
 
     this.loginErrorMessage = ''
     if(this.stepLogin.invalid)
@@ -74,6 +74,7 @@ export class StepComponent implements OnInit {
   }
 
   register(): void {
+    this.dateOfBirthError = ''
     this.stepRegisterSubmitted = true
     this.registerErrorMessage = ''
     this.registerSuccessMessage = ''
@@ -88,6 +89,14 @@ export class StepComponent implements OnInit {
       this.registerSuccessMessage = res.success
       console.log(res)
     }, (err) => {
+      console.log(err)
+      console.log(err.error)
+      console.log(err.error.errors)
+      if(err.error.errors) {
+        console.log(err.error.errors)
+        this.dateOfBirthError = err.error.errors.DateOfBirth[0]
+        console.log(this.dateOfBirthError)
+      }
       this.stepRegisterSubmitted = false
       this.registerErrorMessage = err.error.error
     })
